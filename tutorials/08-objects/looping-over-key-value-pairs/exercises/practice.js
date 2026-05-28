@@ -18,7 +18,9 @@ const stationPingsMs = {
     Log a network diagnostic statement for each entry using a template literal:
     "Connection to [stationKey] latency is: [ping value]ms."
 */
-
+ for(let stationKey in stationPingsMs) {
+    console.log(`Connection to ${stationKey} latency is: ${stationPingsMs[stationKey]}ms.`)
+ }
 /** EXERCISE 2: WEAPONS INVENTORY VERIFICATION **/
 
 const pdcAmmoLocker = {
@@ -34,3 +36,10 @@ const pdcAmmoLocker = {
     log an emergency update using a template literal: "CRITICAL DEPLETION: [key] ammo 
     is completely empty!"
 */
+let ammoKeys = Object.keys(pdcAmmoLocker);
+for (let key of ammoKeys) {
+    if (pdcAmmoLocker[key] === 0){
+        console.log(`CRITICAL DEPLETION: ${key} ammo 
+    is completely empty!`);
+    }
+}
