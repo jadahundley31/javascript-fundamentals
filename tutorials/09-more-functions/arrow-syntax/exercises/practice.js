@@ -18,6 +18,8 @@ function knotsToMach(knots) {
     Store it in a constant named 'convertKnotsToMach', then log
     a phrase or sentence using your new function.
 */
+const convertKnotsToMach = knots => knots * 0.0015; //concise arrow function
+console.log(`The knots to mach conversion is: ${convertKnotsToMach(100)}M`);
 
 /** EXERCISE 2: THRESHOLD OVERRIDE MATRIX **/
 
@@ -32,6 +34,10 @@ function verifyShieldThreshold(currentEnergy, safeLimit) {
     Store it in a constant named 'isShieldSafe', then log a phrase or
     sentence using a value returned from your function.
 */
+const isShieldSafe = (currentEnergy, safeLimit) => { 
+    return currentEnergy >= safeLimit;
+} //block-body arrow function
+console.log(`The current energy versus safe limit is: ${isShieldSafe(10,20)}`);
 
 /** EXERCISE 3: DEBUGGING THE HOISTING BLUNDER **/
 
@@ -40,9 +46,10 @@ function verifyShieldThreshold(currentEnergy, safeLimit) {
     Fix the code sequence so that it executes cleanly without throwing errors, 
     keeping the modern arrow syntax intact.
 */
-let systemAlert = formatRadioPacket("mcrn-roci", "DRIVE INITIALIZED");
 
 const formatRadioPacket = (callsign, status) =>
 	`[${callsign.toUpperCase()}] status update: ${status.toLowerCase()}`;
+
+let systemAlert = formatRadioPacket("mcrn-roci", "DRIVE INITIALIZED"); //can't be written before a const
 
 console.log(systemAlert);
